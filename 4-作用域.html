@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <h1>{{ carname }}</h1>
+        <hr />
+        <input ng-model="name">
+        <h1>{{greeting}}</h1>
+        <button ng-click='say()'>点我</button> 
+        <hr />
+        <ul>
+            <li ng-repeat="x in list">{{ x }}</li>
+        </ul>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller('myCtrl', function($scope) {
+            $scope.carname = "Volvo";
+
+            $scope.name = "Runoob";
+            $scope.say = function(){
+                $scope.greeting = 'Hello  ' + $scope.name;
+            }
+
+            $scope.list = ["Emil", "Tobias", "Linus"];
+        });
+    </script> -->
+
+    <!-- 根作用域 -->
+    <!-- 所有的应用都有一个 $rootScope，它可以作用在 ng-app 指令包含的所有 HTML 元素中。 -->
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h1>{{lastname}} 家族成员:</h1>
+        <ul>
+            <li ng-repeat="x in names">{{x}} {{lastname}}</li>
+        </ul>
+    </div>
+    <script>
+        var app = angular.module("myApp" ,[]);
+        app.controller("myCtrl", function($scope, $rootScope) {
+            $scope.names = ["Emil", "Tobias", "Linus"];
+            $rootScope.lastname = "Refsnes";
+        });
+    </script>
+</body>
+</html>

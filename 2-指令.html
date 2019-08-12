@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-init="
+    firstName='John'; 
+    quantity=1; price=5;
+    names=['Jani','Hege','Kai'];
+    objNames=[
+    {name:'Jani',country:'Norway'},
+    {name:'Hege',country:'Sweden'},
+    {name:'Kai',country:'Denmark'}
+    ];
+    ">
+        <p>姓名：<input type="text" ng-model="firstName"></p>
+        <p>你输入的为： {{ firstName }}</p>
+        <hr />
+        <p>数量: <input type="text" ng-model="quantity"></p>
+        <p>价格: <input type="text" ng-model="price"></p>
+        <p>总价: {{ quantity * price }}</p>
+        <hr />
+        <!-- ng-repeat 来循环数组 -->
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x }}
+            </li>
+        </ul>
+        <hr />
+        <ul>
+            <li ng-repeat="y in objNames">
+                {{ y.name + " " + y.country }}
+            </li>
+        </ul>
+    <!-- <runoob-directive></runoob-directive> -->
+    <!-- <div runoob-directive></div> --> <!-- 设置 restrict 的值为 "A" 才能通过类名来调用指令 -->
+    <div class="runoob-directive"></div> <!-- 设置 restrict 的值为 "C" 才能通过类名来调用指令 -->
+    
+    <!-- directive: runoob-directive --> <!-- 该实例添加 replace 属性; 设置 restrict 的值为 "M" 才能通过注释来调用指令 -->
+    </div>
+
+    <!-- 创建自定义指令 -->
+    <!-- .directive 函数用来添加自定义的指令 -->
+    <script>
+        var app = angular.module("myApp", []);
+        app.directive("runoobDirective", function(){
+            return {
+                restrict : "C",
+                // restrict : "M",
+                // replace : true,
+                template: "<h1>自定义指令</h1>"
+            }
+        });
+    </script>
+    <!-- 
+        E 作为元素名使用
+        A 作为属性使用
+        C 作为类名使用
+        M 作为注释使用 
+        restrict 默认值为 EA, 即可以通过元素名和属性名来调用指令
+    -->
+</body>
+</html>
