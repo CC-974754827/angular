@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-animate.min.js"></script>
+    <title>Document</title>
+    <style>
+        /* div {
+            transition: all linear 0.5s;
+            background-color: lightblue;
+            height: 100px;
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        .ng-hide {
+            height: 0;
+            width: 0;
+            background-color: transparent;
+            top:-200px;
+            left: 200px;
+        } */
+        @keyframes myChange {
+            from {
+                height: 100px;
+            } to {
+                height: 0;
+            }
+        }
+
+        div {
+            height: 100px;
+            background-color: lightblue;
+        }
+
+        div.ng-hide {
+            animation: 0.5s myChange;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+    <p>隐藏 DIV: <input type="checkbox" ng-model="myCheck"> </p>
+    <div ng-hide="myCheck"></div>
+
+    <script>
+        var app = angular.module('myApp', ['ngAnimate']);
+    </script>
+</body>
+</html>
