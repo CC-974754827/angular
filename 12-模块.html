@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        angular.module 函数来创建模块
+        添加控制器 ng-controller 指令来添加应用的控制器 
+    -->
+
+    <div ng-app="myApp" runoob-directive></div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        // 添加指令 
+        app.directive("runoobDirective", function() {
+            return {
+                template : "添加指令"
+            };
+        });
+    </script>
+</body>
+</html>

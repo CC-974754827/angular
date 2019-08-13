@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- ng-repeat 指令可以完美的显示表格 -->
+    <div ng-app="myApp" ng-controller="customersCtrl"> 
+        <table>
+            <tr ng-repeat="x in names">
+            <td>{{ x.Name }}</td>
+            <td>{{ x.Country }}</td>
+            </tr>
+        </table>
+    </div>
+    <!-- $even 偶数 和 $odd 奇数 -->
+</body>
+</html>
